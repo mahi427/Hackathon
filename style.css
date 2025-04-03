@@ -1,0 +1,102 @@
+/*-----------------------------------*\
+  #PRELOAD
+\*-----------------------------------*/
+
+.preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(44, 6, 68);
+    z-index: 10;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    transition: 1000ms ease;
+  }
+  
+  .preload > * { transition: 300ms ease; }
+  
+  .preload.loaded > * { opacity: 0; }
+  
+  .preload.loaded {
+    transition-delay: 600ms;
+    transform: translateY(100%);
+  }
+  
+  .circle {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border: 3px solid white;
+    border-block-start-color: black;
+    margin-block-end: 45px;
+    animation: rotate360 2s linear infinite;
+  }
+  
+  @keyframes rotate360 {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(1turn); }
+  }
+  
+  .preload .text {
+    background-image: var(--loading-text-gradient);
+    background-size: 500%;
+    font-size: calc(2rem + 3vw);
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: 16px;
+    padding-inline-start: 16px;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1.5px rgb(255, 178, 122);
+    animation: loadingText linear 3s infinite;
+  }
+  
+  @keyframes loadingText {
+    0% { background-position: 100%; }
+    100% { background-position: 0%; }
+  }
+
+
+   /* Custom CSS that can't be handled by Bootstrap */
+   .mobile-menu {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 3;
+  }
+
+  .mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  .mobile-menu a {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: #007bff !important;
+    transform: translateX(10px);
+  }
+
+  .navbar-brand,
+  .nav-link,
+  .menu-icon,
+  .close-menu {
+    transition: color 0.3s ease;
+  }
+
+  body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  }
+
